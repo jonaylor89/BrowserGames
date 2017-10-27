@@ -1,0 +1,53 @@
+
+function Animal(x, y, rad){
+
+  this.pos = createVector(x, y);
+  this.rad = rad;
+  this.speed = this.rad * speedCalc;
+  this.vel = createVector(0, 0);
+  this.life = 255;
+
+  this.update = function(){
+
+    this.pos.add(this.vel);
+    this.life -= aging;
+
+    if(random(1) < speedChange){
+      var vnorm = createVector(random(-20, 20), random(-20, 20)).normalize();
+      this.vel = vnorm.mult((1/this.speed) * speedMult);
+    }
+
+    if((this.pos.x > width) || (this.pos.x < -width) ||(this.pos.y > height) || (this.pos.y < -height)){
+      this.vel.mult(-1);
+    }
+
+  }
+
+  this.dead = function(){
+
+    if(this.life <= 55){
+      return true;
+    }else{
+      return false;
+    }
+
+  }
+
+  this.reproduce = function(x){
+    if(x < reproduceProb){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  this.show = function(){
+
+      noStroke();
+      fill(255 - this.life);
+      ellipse(this.pos.x, this.pos.y, this.rad * 2, this.rad * 2);
+
+  }
+
+
+}
