@@ -7,7 +7,7 @@ var scl = 20;
 
 function setup(){
 
-  createCanvas(1500, 700);
+  createCanvas(windowWidth - 100, windowHeight - 100);
   snake = new Snake();
   food = new Food();
 
@@ -46,12 +46,8 @@ function keyPressed(){
     snake.dir(1, 0);
   }else if(keyCode === LEFT_ARROW){
     snake.dir(-1, 0);
+  }else if(keyCode === ALT){
+    snake.eat();
   }
 
-}
-
-
-function mousePressed(){
-    snake.eat();
-    rate += 5;
 }
