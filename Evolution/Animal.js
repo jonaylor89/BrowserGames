@@ -1,19 +1,22 @@
 
-function Animal(x, y, rad){
+class Animal{
 
-  this.pos = createVector(x, y);
-  this.rad = rad;
-  this.speed = this.rad * speedCalc;
-  this.vel = createVector(0, 0);
-  this.life = 255;
+  constructor(x, y, rad){
+    this.pos = createVector(x, y);
+    this.rad = rad;
+    this.speed = this.rad * speedCalc;
+    this.vel = createVector(0, 0);
+    this.life = 255;
+    console.log("I ran");
+  }
 
-  this.update = function(){
+  update(){
 
     this.pos.add(this.vel);
     this.life -= aging;
 
     if(random(1) < speedChange){
-      var vnorm = createVector(random(-20, 20), random(-20, 20)).normalize();
+      let vnorm = createVector(random(-20, 20), random(-20, 20)).normalize();
       this.vel = vnorm.mult((1/this.speed) * speedMult);
     }
 
@@ -23,7 +26,7 @@ function Animal(x, y, rad){
 
   }
 
-  this.dead = function(){
+  dead(){
 
     if(this.life <= 55){
       return true;
@@ -33,7 +36,7 @@ function Animal(x, y, rad){
 
   }
 
-  this.reproduce = function(x){
+  reproduce(x){
     if(x < reproduceProb){
       return true;
     }else{
@@ -41,7 +44,7 @@ function Animal(x, y, rad){
     }
   }
 
-  this.show = function(){
+  show(){
 
       noStroke();
       fill(255 - this.life);

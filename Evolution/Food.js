@@ -1,9 +1,11 @@
 
-function Food(x, y){
+class Food{
 
-  this.pos = createVector(x, y);
+  constructor(x, y){
+    this.pos = createVector(x, y);
+  }
 
-  this.show = function(){
+  show(){
     fill(0)
     rect(this.pos.x, this.pos.y, 5, 5);
   }

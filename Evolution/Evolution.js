@@ -1,29 +1,29 @@
-var animals = [];
-var foods = [];
+let animals = [];
+let foods = [];
 
-var startingNum = 20;
-var speedMult = 35;
-var speedCalc = 0.5;
-var speedChange = 0.01;
-var foodProb = 0.1;
-var aging = 0.5;
-var foodLife = 50;
-var maxSize = 75;
-var minSize = 10;
-var reproduceProb = 0.001;
+let startingNum = 20;
+let speedMult = 35;
+let speedCalc = 0.5;
+let speedChange = 0.01;
+let foodProb = 0.1;
+let aging = 0.5;
+let foodLife = 50;
+let maxSize = 75;
+let minSize = 10;
+let reproduceProb = 0.001;
 
 function setup(){
 
   createCanvas(800, 600);
   background(200);
 
-  for(var i = 0; i < startingNum; i++){
-    var a = new Animal(random(width), random(height), random(minSize, maxSize));
+  for(let i = 0; i < startingNum; i++){
+    let a = new Animal(random(width), random(height), random(minSize, maxSize));
     animals.push(a);
   }
 
-  for(var j = 0; j < 10; j++){
-    var f = new Food(random(width), random(height));
+  for(let j = 0; j < 10; j++){
+    let f = new Food(random(width), random(height));
     foods.push(f);
   }
 
@@ -32,15 +32,15 @@ function setup(){
 function draw(){
   background(200);
 
-  for(var i = 0; i < animals.length; i++){
+  for(let i = 0; i < animals.length; i++){
     if(!animals[i].dead()){
       animals[i].update();
       animals[i].show();
 
 
-        for(var x = 0; x < foods.length; x++){
+        for(let x = 0; x < foods.length; x++){
 
-          var d = dist(animals[i].pos.x, animals[i].pos.y, foods[x].pos.x, foods[x].pos.y)
+          let d = dist(animals[i].pos.x, animals[i].pos.y, foods[x].pos.x, foods[x].pos.y)
 
             if(d < animals[i].rad){
               animals[i].life += foodLife;
@@ -49,7 +49,7 @@ function draw(){
         }
 
       if(animals[i].reproduce(random(1))){
-        var a = new Animal(animals[i].pos.x, animals[i].pos.y, animals[i].rad);
+        let a = new Animal(animals[i].pos.x, animals[i].pos.y, animals[i].rad);
         animals.push(a);
       }
 
@@ -60,11 +60,11 @@ function draw(){
   }
 
   if((random(1) < foodProb) && foods.length < 50){
-        var f = new Food(random(width), random(height));
+        let f = new Food(random(width), random(height));
         foods.push(f);
   }
 
-  for(var i = 0; i < foods.length; i++){
+  for(let i = 0; i < foods.length; i++){
       foods[i].show();
   }
 
