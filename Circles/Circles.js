@@ -1,4 +1,4 @@
-var circles = [];
+let circles = [];
 
 function setup(){
 
@@ -6,12 +6,12 @@ function setup(){
   background(51);
   stroke(255);
 
-  var overlapping = false;
+  let overlapping = false;
 
   while (circles.length < 300){
   //for(var i = 0; i < 20; i++){
 
-    var circle = {
+    let circle = {
       x: random(width),
       y: random(height),
       r: random(300)
@@ -19,10 +19,10 @@ function setup(){
 
     overlapping = false;
 
-    for(var k = 0; k < circles.length; k++){
+    for(let k = 0; k < circles.length; k++){
 
-      var other = circles[k];
-      var d = dist(circle.x, circle.y, other.x, other.y);
+      let other = circles[k];
+      let d = dist(circle.x, circle.y, other.x, other.y);
 
       if(d < other.r + circle.r){
         overlapping = true;
@@ -34,7 +34,7 @@ function setup(){
     }
   }
 
-  for(var j = 0; j < circles.length; j++){
+  for(let j = 0; j < circles.length; j++){
 
     noFill();
     ellipse(circles[j].x, circles[j].y, circles[j].r * 2, circles[j].r * 2);
