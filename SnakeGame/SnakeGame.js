@@ -38,13 +38,13 @@ function draw(){
 
 function keyPressed(){
 
-  if(keyCode === UP_ARROW){
+  if(keyCode === UP_ARROW || key === "k"){
     snake.dir(0, -1);
-  } else if(keyCode === DOWN_ARROW){
+  } else if(keyCode === DOWN_ARROW || key === "j"){
     snake.dir(0, 1);
-  }else if(keyCode === RIGHT_ARROW){
+  }else if(keyCode === RIGHT_ARROW || key === "l"){
     snake.dir(1, 0);
-  }else if(keyCode === LEFT_ARROW){
+  }else if(keyCode === LEFT_ARROW || key === "h"){
     snake.dir(-1, 0);
   }else if(keyCode === ALT){
     snake.eat();
