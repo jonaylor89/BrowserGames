@@ -1,5 +1,5 @@
-var x;
-var y;
+let x;
+let y;
 
 function setup(){
 
@@ -17,7 +17,7 @@ function draw(){
   strokeWeight(1);
   point(x, y)
 
-  var r = floor(random(4));
+  let r = floor(random(4));
 
   switch(r){
 
