@@ -1,19 +1,21 @@
-function Snake() {
-  this.pos = createVector(0, 0);
-  this.vel = createVector(scl, 0);
-  this.total = 0;
-  this.tail = [];
+class Snake {
+  constructor() {
+    this.pos = createVector(0, 0);
+    this.vel = createVector(scl, 0);
+    this.total = 0;
+    this.tail = [];
+  }
 
-  this.dir = function(x, y) {
+  dir(x, y) {
     this.vel.x = x * scl;
     this.vel.y = y * scl;
-  };
+  }
 
-  this.eat = function() {
+  eat() {
     this.total += 1;
-  };
+  }
 
-  this.death = function() {
+  death() {
     for (let i = 0; i < this.total; i++) {
       if (this.pos.equals(this.tail[i])) {
         this.tail = [];
@@ -21,9 +23,9 @@ function Snake() {
         rate = 10;
       }
     }
-  };
+  }
 
-  this.update = function() {
+  update() {
     if (this.total === this.tail.length) {
       for (let i = 0; i < this.tail.length - 1; i++) {
         this.tail[i] = this.tail[i + 1];
@@ -35,9 +37,9 @@ function Snake() {
 
     this.pos.x = constrain(this.pos.x, 0, width - scl);
     this.pos.y = constrain(this.pos.y, 0, height - scl);
-  };
+  }
 
-  this.show = function() {
+  show() {
     fill(255);
 
     for (let j = 0; j < this.total; j++) {
@@ -45,5 +47,5 @@ function Snake() {
     }
 
     rect(this.pos.x, this.pos.y, scl, scl);
-  };
+  }
 }
