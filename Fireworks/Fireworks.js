@@ -16,6 +16,7 @@ function draw() {
     fireworks.push(new Firework());
 
   for (let i = fireworks.length - 1; i >= 0; i--) {
+
     fireworks[i].update();
     fireworks[i].show();
 
