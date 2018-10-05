@@ -1,23 +1,18 @@
+let snake;
+let food;
+let rate = 10;
+let scl = 20;
 
-var snake;
-var food;
-var rate = 10;
-var scl = 20;
-
-
-function setup(){
-
+function setup() {
   createCanvas(windowWidth - 100, windowHeight - 100);
   snake = new Snake();
   food = new Food();
 
-    frameRate(rate);
+  frameRate(rate);
 }
 
-function draw(){
-
+function draw() {
   frameRate(rate);
-
 
   background(0);
 
@@ -27,27 +22,23 @@ function draw(){
 
   food.show();
 
-  if(snake.pos.equals(food.pos)){
+  if (snake.pos.equals(food.pos)) {
     food.location();
     snake.eat();
     rate += 1;
   }
-
 }
 
-
-function keyPressed(){
-
-  if(keyCode === UP_ARROW || key === 'k'){
+function keyPressed() {
+  if (keyCode === UP_ARROW || key === "k") {
     snake.dir(0, -1);
-  } else if(keyCode === DOWN_ARROW || key === 'j'){
+  } else if (keyCode === DOWN_ARROW || key === "j") {
     snake.dir(0, 1);
-  }else if(keyCode === RIGHT_ARROW || key === 'l'){
+  } else if (keyCode === RIGHT_ARROW || key === "l") {
     snake.dir(1, 0);
-  }else if(keyCode === LEFT_ARROW || key === 'h'){
+  } else if (keyCode === LEFT_ARROW || key === "h") {
     snake.dir(-1, 0);
-  }else if(keyCode === ALT){
+  } else if (keyCode === ALT) {
     snake.eat();
   }
-
 }
