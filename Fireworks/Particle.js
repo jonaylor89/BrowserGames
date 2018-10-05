@@ -1,52 +1,47 @@
+'use strict'
 
-function Particle(x, y, ex){
+class Particle {
+  constructor(x, y, ex) {
+    this.ex = ex;
+    this.life = 255;
+    this.pos = createVector(x, y);
+    this.acc = createVector(0, 0);
 
-  this.life = 255;
-
-  this.pos = createVector(x, y);
-  if(!ex){
-    this.vel = createVector(0, random(-6, -11));
-  }else{
-    this.vel = p5.Vector.random2D();
-    this.vel.mult(random(1, 5));
-  }
-  this.acc = createVector(0, 0);
-
-  this.update = function(){
-
-    if(ex){
-      this.vel.mult(0.95);
+    if (!ex) {
+      this.vel = createVector(0, random(-6, -11));
+    } else {
+      this.vel = p5.Vector.random2D();
+      this.vel.mult(random(1, 5));
     }
+  }
 
-      this.pos.add(this.vel);
-      this.vel.add(this.acc);
-      this.acc.mult(0);
+  update() {
+    if(this.ex)
+      this.vel.mult(0.95);
 
-      this.life -= 6;
+    this.pos.add(this.vel);
+    this.vel.add(this.acc);
+    this.acc.mult(0);
+    this.life -= 6;
+  }
 
-  };
+  applyForce(Force) {
+    this.acc.add(Force);
+  }
 
-  this.applyForce = function(Force){
-      this.acc.add(Force);
-  };
-
-  this.done = function(){
+  done() {
     return this.life < 0;
-  };
+  }
 
-  this.show = function(){
-
-    if(ex){
+  show() {
+    if (this.ex) {
       strokeWeight(2);
       stroke(255, this.life);
-    }else{
+    } else {
       strokeWeight(4);
       stroke(255);
     }
 
-
     point(this.pos.x, this.pos.y);
-
   };
-
 }
