@@ -1,5 +1,5 @@
-var fireworks = [];
-var gravity;
+let fireworks = [];
+let gravity;
 
 function setup(){
 
@@ -18,7 +18,7 @@ function draw(){
      fireworks.push(new Firework());
    }
 
-  for(var i = fireworks.length - 1; i >= 0; i--){
+  for(let i = fireworks.length - 1; i >= 0; i--){
     fireworks[i].update();
     fireworks[i].show();
 
