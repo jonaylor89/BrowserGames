@@ -1,6 +1,7 @@
 
-let inc = 0.1;
-let scl = 10;
+const inc = 0.1;
+const scl = 10;
+
 let cols, rows;
 let zoff = 0;
 let particles = [];

@@ -49,12 +49,12 @@ function Cell(i, j, w){
       return -1;
     }else{
 
-      var total = 0;
+      let total = 0;
 
-      for(var xoff = -1; xoff <= 1; xoff++){
-        for(var yoff = -1; yoff <= 1; yoff++){
-          var s = this.i + xoff;
-          var t = this.j + yoff;
+      for(let xoff = -1; xoff <= 1; xoff++){
+        for(let yoff = -1; yoff <= 1; yoff++){
+          let s = this.i + xoff;
+          let t = this.j + yoff;
           if(s > -1 && s < columns && t > -1 && t < rows){
             if(grid[s][t].mine){
               total++;
@@ -80,10 +80,10 @@ function Cell(i, j, w){
 
   Cell.prototype.floodFill = function(){
 
-    for(var xoff = -1; xoff <= 1; xoff++){
-      for(var yoff = -1; yoff <= 1; yoff++){
-        var s = this.i + xoff;
-        var t = this.j + yoff;
+    for(let xoff = -1; xoff <= 1; xoff++){
+      for(let yoff = -1; yoff <= 1; yoff++){
+        let s = this.i + xoff;
+        let t = this.j + yoff;
         if(s > -1 && s < columns && t > -1 && t < rows){
           if(!grid[s][t].mine && !grid[s][t].revealed){
             grid[s][t].reveal();
