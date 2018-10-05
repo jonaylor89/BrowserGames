@@ -15,7 +15,7 @@ class Firework {
       }
     }
 
-    for (var y = this.particles.length - 1; y >= 0; y--) {
+    for (let y = this.particles.length - 1; y >= 0; y--) {
       this.particles[y].applyForce(gravity);
       this.particles[y].update();
 
@@ -26,9 +26,9 @@ class Firework {
   };
 
   explode() {
-    const {x, y} = this.firework.pos;
+    let {pos} = this.firework;
     for (let x = 0; x < 75; x++) {
-      let p = new Particle(x, y, true);
+      let p = new Particle(pos.x, pos.y, true);
       this.particles.push(p);
     }
   };
