@@ -28,20 +28,12 @@ class Animal{
 
   dead(){
 
-    if(this.life <= 55){
-      return true;
-    }else{
-      return false;
-    }
+    return this.life <= 55;
 
   }
 
   reproduce(x){
-    if(x < reproduceProb){
-      return true;
-    }else{
-      return false;
-    }
+    return x < reproduceProb;
   }
 
   show(){
