@@ -8,11 +8,7 @@ class Cell {
   
     this.mineCount;
   
-    if (random(1) > 0.9) {
-      this.mine = true;
-    } else {
-      this.mine = false;
-    }
+    this.mine = random(1) > 0.9;
   
     this.revealed = false;
   }
@@ -67,7 +63,7 @@ class Cell {
   reveal() {
     this.revealed = true;
 
-    if (this.mineCount == 0) {
+    if (this.mineCount === 0) {
       this.floodFill();
     }
   }

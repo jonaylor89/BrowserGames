@@ -6,7 +6,7 @@ class Food{
   }
 
   show(){
-    fill(0)
+    fill(0);
     rect(this.pos.x, this.pos.y, 5, 5);
   }
 }

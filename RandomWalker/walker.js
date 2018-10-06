@@ -15,7 +15,7 @@ function draw(){
 
   stroke(255);
   strokeWeight(1);
-  point(x, y)
+  point(x, y);
 
   let r = floor(random(4));
 

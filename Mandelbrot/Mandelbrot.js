@@ -44,7 +44,7 @@ function draw() {
 
       let bright = map(n, 0, maxIter, 0, 1);
       bright = map(sqrt(bright), 0, 1, 0, 255);
-      if (n == maxIter) {
+      if (n === maxIter) {
         bright = 0;
       }
 
